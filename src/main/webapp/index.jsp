@@ -22,8 +22,8 @@
 
     <body>
 
-        <form action="${pageContext.request.contextPath }/province/getProvinceId.do" method="post">
-            province:<input type="text" name="province"/>
+        <form action="${pageContext.request.contextPath }/province/getWeatherByCityName.do" method="post">
+            city:<input type="text" name="city"/>
             <input type="submit" value="登录"/>
         </form>
     </body>
