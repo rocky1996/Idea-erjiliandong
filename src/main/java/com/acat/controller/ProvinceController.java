@@ -74,13 +74,18 @@ public class ProvinceController {
         System.out.println(city);
 
         String uri = WEATHER_URI + "city=" + city;
+
+        System.out.println(uri);
+
         WeatherResponse resp = doGetWeather(uri);
         System.out.println(resp);
         return resp;
     }
 
     private WeatherResponse doGetWeather(String uri){
+
         RestTemplate restTemplate = new RestTemplate();
+
         ResponseEntity<String> respString = restTemplate.getForEntity(uri,String.class);
         ObjectMapper mapper = new ObjectMapper();
         WeatherResponse resp = null;
@@ -91,7 +96,7 @@ public class ProvinceController {
         }
 
         try{
-            resp = mapper.readValue(strBody,WeatherResponse.class);
+            resp = mapper.readValue(strBody, WeatherResponse.class);
         }catch (IOException e) {
             e.printStackTrace();
         }
